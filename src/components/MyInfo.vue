@@ -19,19 +19,19 @@ import {toNewPage} from "@/utils/routerUtils";
     </div>
     <div class="my-blog">
       <div class="my-blog-item">
-        <div class="num">4</div>
+        <div class="num">0</div>
         <div class="title">文章</div>
       </div>
       <div class="my-blog-item">
-        <div class="num">4</div>
+        <div class="num">0</div>
         <div class="title">说说</div>
       </div>
       <div class="my-blog-item">
-        <div class="num">4</div>
+        <div class="num">0</div>
         <div class="title">分类</div>
       </div>
       <div class="my-blog-item">
-        <div class="num">4</div>
+        <div class="num">0</div>
         <div class="title">标签</div>
       </div>
     </div>

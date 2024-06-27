@@ -1,1 +1,1 @@
-export const BASEURL = 'http://127.0.0.1:9000'
+export const BASEURL = 'http://127.0.0.1:9000'export const IMAGE_URL = 'http://192.168.101.65:9000/'

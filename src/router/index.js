@@ -4,6 +4,7 @@ const routes = [
   {
     path: '/',
     name: 'index',
+    redirect: '/',
     meta: {
       title: '首页'
     },

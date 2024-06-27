@@ -2,7 +2,21 @@
 import {Icon} from '@vicons/utils'
 import {BonfireOutline} from "@vicons/ionicons5"
 import Feature from "@/components/Feature.vue";
+import {getNewFeatured} from "@/api/articleApi";
+import {onMounted, reactive} from "vue";
 
+const featureList = reactive([])
+
+function init() {
+  getNewFeatured().then(res => {
+    featureList.length = 0
+    featureList.push(...res.data.articleVOS)
+  })
+}
+
+onMounted(() => {
+  init()
+})
 </script>
 
 <template>
@@ -15,11 +29,8 @@ import Feature from "@/components/Feature.vue";
       </div>
       <div class="feature-desc">推荐文章</div>
     </div>
-    <div class="feature-item">
-      <Feature :vertical="true"/>
-    </div>
-    <div class="feature-item">
-      <Feature :vertical="true"/>
+    <div class="feature-item" v-for="item in featureList">
+      <Feature :vertical="true" :data="item"/>
     </div>
   </div>
 </template>

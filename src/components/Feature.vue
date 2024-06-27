@@ -1,16 +1,17 @@
 <script setup>
 import cover from "@/assets/image/default-cover.jpg";
 import {onBeforeUnmount, onMounted, ref} from "vue";
+import {IMAGE_URL} from "@/utils/Constant";
 
-const {} = defineProps({
+const {data} = defineProps({
   vertical: {
     type: Boolean,
     default: false
   },
-  // data: {
-  //   type: Object,
-  //   required: true
-  // }
+  data: {
+    type: Object,
+    required: true
+  }
 })
 
 const windowSmall = ref(document.documentElement.clientWidth < 768)
@@ -38,20 +39,21 @@ onBeforeUnmount(() => {
     <div class="feature-container">
       <div class="feature-article">
         <div class="feature-left">
-          <img class="feature-image" :src="cover" alt="">
+          <img class="feature-image" :src="data?.cover ? IMAGE_URL + data.cover : cover" alt="">
           <span class="feature-image-nail"></span>
         </div>
         <div class="feature-right">
           <div class="feature-right-container">
             <div class="feature-right-top">
-              <div class="feature-article-top">231321 #789789</div>
-              <div class="feature-article-title">321321</div>
-              <div class="feature-article-desc">gfdgfd</div>
+              <div class="feature-article-top">{{ data?.categoryName }}<span
+                  v-for="item in data?.tagList"> #{{ item }}</span></div>
+              <div class="feature-article-title">{{ data?.title }}</div>
+              <div class="feature-article-desc">{{ data?.digest }}</div>
             </div>
             <div class="feature-right-bottom">
               <img class="feature-avatar" :src="cover" alt="">
-              <div class="feature-username">测试测试</div>
-              <div class="feature-create-time">发布于 六月 26, 2024</div>
+              <div class="feature-username">{{ data?.username }}</div>
+              <div class="feature-create-time">发布于 {{ data?.createTime?.replace('T', ' ') }}</div>
             </div>
           </div>
         </div>
@@ -74,7 +76,7 @@ onBeforeUnmount(() => {
 }
 
 .fixed-width {
-  width: 100%!important;
+  width: 100% !important;
 }
 
 .feature-container {
