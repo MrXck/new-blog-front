@@ -11,3 +11,7 @@ export function getNewFeatured() {
 export function getArticleByPage(data) {
     return request.post("/article/page", data)
 }
+
+export function getArticleCount() {
+    return request.get('/article/count')
+}

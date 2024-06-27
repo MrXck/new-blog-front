@@ -1,25 +1,85 @@
 <script setup>
 import cover from '@/assets/image/default-cover.jpg'
 import {Icon} from "@vicons/utils";
-import {LogoGithub} from "@vicons/ionicons5";
+import {LogoWechat} from "@vicons/ionicons5";
+import {QqOutlined, GithubOutlined, ZhihuOutlined, WeiboOutlined, TwitterOutlined} from "@vicons/antd";
 import {toNewPage} from "@/utils/routerUtils";
+import {getWebsiteConfigApi} from "@/api/websiteConfigApi";
+import {onMounted, ref} from "vue";
+import {IMAGE_URL} from "@/utils/Constant";
+import {getArticleCount} from "@/api/articleApi";
+import {getCategoryCount} from "@/api/categoryApi";
+import {getTagCount} from "@/api/tagApi";
+
+const data = ref({})
+const articleCount = ref(0)
+const categoryCount = ref(0)
+const tagCount = ref(0)
+
+function init() {
+  getWebsiteConfigApi().then(res => {
+    data.value = res.data.websiteConfigs[0]
+  })
+
+
+  getArticleCount().then(res => {
+    articleCount.value = res.data.count
+  })
+
+  getCategoryCount().then(res => {
+    categoryCount.value = res.data.count
+  })
+
+  getTagCount().then(res => {
+    tagCount.value = res.data.count
+  })
+}
+
+onMounted(() => {
+  init()
+})
 </script>
 
 <template>
   <div class="my-info">
-    <img class="my-avatar" :src="cover" alt="">
-    <div class="my-name">XCK</div>
-    <div class="my-desc">XCK</div>
+    <img class="my-avatar" :src="data.authorCover ? IMAGE_URL + data.authorCover : cover" alt="">
+    <div class="my-name">{{ data.authorName }}</div>
+    <div class="my-desc">{{ data.authorDesc }}</div>
     <div class="my-option">
-      <div class="my-icon" @click="toNewPage('https://github.com/MrXck')">
+      <div class="my-icon" v-if="data.githubUrl" @click="toNewPage(data.githubUrl)">
         <Icon size="30">
-          <LogoGithub/>
+          <GithubOutlined/>
+        </Icon>
+      </div>
+      <div class="my-icon" v-if="data.wechatUrl" @click="toNewPage(data.wechatUrl)">
+        <Icon size="30">
+          <LogoWechat/>
+        </Icon>
+      </div>
+      <div class="my-icon" v-if="data.qqUrl" @click="toNewPage(data.qqUrl)">
+        <Icon size="30">
+          <QqOutlined/>
+        </Icon>
+      </div>
+      <div class="my-icon" v-if="data.zhihuUrl" @click="toNewPage(data.zhihuUrl)">
+        <Icon size="30">
+          <ZhihuOutlined/>
+        </Icon>
+      </div>
+      <div class="my-icon" v-if="data.wbUrl" @click="toNewPage(data.wbUrl)">
+        <Icon size="30">
+          <WeiboOutlined/>
+        </Icon>
+      </div>
+      <div class="my-icon" v-if="data.twitterUrl" @click="toNewPage(data.twitterUrl)">
+        <Icon size="30">
+          <TwitterOutlined/>
         </Icon>
       </div>
     </div>
     <div class="my-blog">
       <div class="my-blog-item">
-        <div class="num">0</div>
+        <div class="num">{{ articleCount }}</div>
         <div class="title">文章</div>
       </div>
       <div class="my-blog-item">
@@ -27,11 +87,11 @@ import {toNewPage} from "@/utils/routerUtils";
         <div class="title">说说</div>
       </div>
       <div class="my-blog-item">
-        <div class="num">0</div>
+        <div class="num">{{ categoryCount }}</div>
         <div class="title">分类</div>
       </div>
       <div class="my-blog-item">
-        <div class="num">0</div>
+        <div class="num">{{ tagCount }}</div>
         <div class="title">标签</div>
       </div>
     </div>
@@ -43,7 +103,7 @@ import {toNewPage} from "@/utils/routerUtils";
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1e222f;
+  background-color: #292929;
   padding: 20px;
   border-radius: 10px;
 }
@@ -75,10 +135,14 @@ import {toNewPage} from "@/utils/routerUtils";
 
 .my-option {
   margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .my-icon {
   cursor: pointer;
+  margin-right: 10px;
+  color: white;
 }
 
 .my-blog {
@@ -96,12 +160,12 @@ import {toNewPage} from "@/utils/routerUtils";
 }
 
 .title {
-  color: #a18999;
+  color: white;
   font-size: 18px;
 }
 
 .num {
-  color: #f3dceb;
+  color: white;
   font-size: 18px;
 }
 </style>

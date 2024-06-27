@@ -36,11 +36,13 @@ onMounted(() => {
       <div :class="[
           'category-item',
           current === null ? 'active' : ''
-      ]" @click="changeCategory(null)">全部</div>
+      ]" @click="changeCategory(null)">全部
+      </div>
       <div :class="[
           'category-item',
           current === item.id ? 'active' : ''
-      ]" v-for="item in categoryList" @click="changeCategory(item.id)">{{ item.name }}</div>
+      ]" v-for="item in categoryList" @click="changeCategory(item.id)">{{ item.name }}
+      </div>
     </div>
     <div class="category-icon">
       <div v-show="showAll" @click="showAll = false">
@@ -69,7 +71,6 @@ onMounted(() => {
   height: 34px;
   overflow: hidden;
   justify-content: space-between;
-  transition: all 0.3s ease;
 }
 
 .category-item {
