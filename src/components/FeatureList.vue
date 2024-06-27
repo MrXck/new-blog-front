@@ -52,7 +52,7 @@ import Feature from "@/components/Feature.vue";
   margin-left: 30px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .feature-list {
     flex-direction: column;
   }
