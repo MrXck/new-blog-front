@@ -7,3 +7,7 @@ export function to(path) {
 export function toNew(path) {
   window.open(router.resolve(path).href, '_blank')
 }
+
+export function toNewPage(path) {
+  window.open(path, '_blank')
+}
