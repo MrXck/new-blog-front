@@ -15,7 +15,7 @@ import {to} from '@/utils/routerUtils'
       <div class="header-item header-button" @click="to({name: 'index'})">首页</div>
 <!--      <div class="header-item header-button">说说</div>-->
 <!--      <div class="header-item header-button">关于</div>-->
-      <div class="header-item header-button">归档</div>
+      <div class="header-item header-button" @click="to({name: 'archive'})">归档</div>
       <div class="header-item header-button" @click="to({name: 'tags'})">标签</div>
 <!--      <div class="header-item header-button">留言</div>-->
 <!--      <div class="header-item header-button">友链</div>-->

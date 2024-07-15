@@ -19,3 +19,7 @@ export function getArticleCount() {
 export function getArticleById(id) {
     return request.get(`/article/${id}`)
 }
+
+export function getArchive(data) {
+    return request.post(`/article/archive`, data)
+}

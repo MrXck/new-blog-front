@@ -40,7 +40,15 @@ const routes = [
         meta: {
           title: '文章列表'
         },
-        component: () => import('@/views/article-page/ArticleList.vue')
+        component: () => import('@/views/article-page/ArticleList')
+      },
+      {
+        path: 'archive',
+        name: 'archive',
+        meta: {
+          title: '归档'
+        },
+        component: () => import('@/views/archive-page/Index')
       },
     ]
   },

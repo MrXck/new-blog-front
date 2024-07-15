@@ -1,6 +1,6 @@
 <script setup>
 import {onMounted, reactive, ref} from "vue";
-import {getArticleByTagId} from "@/api/articleTag";
+import {getArticleByTagId} from "@/api/articleTagApi";
 import {useRoute} from "vue-router";
 import Pagination from "@/components/Pagination.vue";
 import Feature from "@/components/Feature.vue";
