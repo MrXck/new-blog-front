@@ -19,7 +19,7 @@ import {to} from '@/utils/routerUtils'
       <div class="header-item header-button" @click="to({name: 'tags'})">标签</div>
 <!--      <div class="header-item header-button">留言</div>-->
 <!--      <div class="header-item header-button">友链</div>-->
-      <div class="header-item header-button">相册</div>
+      <div class="header-item header-button" @click="to({name: 'photo'})">相册</div>
     </div>
     <div class="header-right">
       <div class="header-item">

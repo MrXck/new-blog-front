@@ -50,6 +50,22 @@ const routes = [
         },
         component: () => import('@/views/archive-page/Index')
       },
+      {
+        path: 'photo',
+        name: 'photo',
+        meta: {
+          title: '相册'
+        },
+        component: () => import('@/views/photo-page/Index')
+      },
+      {
+        path: 'photo-list/:id',
+        name: 'photo-list',
+        meta: {
+          title: '照片列表'
+        },
+        component: () => import('@/views/photo-page/PhotoList')
+      },
     ]
   },
   {
