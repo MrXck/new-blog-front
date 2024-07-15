@@ -4,7 +4,6 @@ import {useRoute} from "vue-router";
 import {onMounted, reactive, ref} from "vue";
 import Pagination from "@/components/Pagination.vue";
 import {getPhotoAlbumPhotoListByPage} from "@/api/photoApi";
-import {to, toNewPage} from "@/utils/routerUtils";
 
 const route = useRoute()
 const photoList = reactive([])
