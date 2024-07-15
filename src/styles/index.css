@@ -13,6 +13,7 @@
     --active-tab-color: #e8aeff;
     --feature-title-color: white;
     --feature-bg-color: #212121;
+    --tag-color: white;
     --feature-nail-bg-color: linear-gradient(90deg, hsla(0, 0%, 13%, 0) 0,
     hsla(0, 0%, 13%, 0.013) 8.1%, hsla(0, 0%, 13%, 0.049) 15.5%,
     hsla(0, 0%, 13%, 0.104) 22.5%, hsla(0, 0%, 13%, 0.175) 29%,
@@ -40,6 +41,7 @@
     --active-tab-color: #e8aeff;
     --feature-title-color: black;
     --feature-bg-color: white;
+    --tag-color: black;
     --feature-nail-bg-color: linear-gradient(90deg, hsla(0, 0%, 98%, 0.013) 8.1%,
     hsla(0, 0%, 98%, 0.049) 15.5%, hsla(0, 0%, 98%, 0.104) 22.5%,
     hsla(0, 0%, 98%, 0.175) 29%, hsla(0, 0%, 98%, 0.259) 35.3%,

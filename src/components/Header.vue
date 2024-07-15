@@ -1,5 +1,5 @@
 <script setup>
-import {Search} from "@vicons/ionicons5";
+import {Search} from "@vicons/ionicons5"
 import {Icon} from '@vicons/utils'
 import {to} from '@/utils/routerUtils'
 
@@ -13,12 +13,12 @@ import {to} from '@/utils/routerUtils'
         <div style="font-size: 16px">desc</div>
       </div>
       <div class="header-item header-button" @click="to({name: 'index'})">首页</div>
-      <div class="header-item header-button">说说</div>
-      <div class="header-item header-button">关于</div>
+<!--      <div class="header-item header-button">说说</div>-->
+<!--      <div class="header-item header-button">关于</div>-->
       <div class="header-item header-button">归档</div>
-      <div class="header-item header-button">标签</div>
-      <div class="header-item header-button">留言</div>
-      <div class="header-item header-button">友链</div>
+      <div class="header-item header-button" @click="to({name: 'tags'})">标签</div>
+<!--      <div class="header-item header-button">留言</div>-->
+<!--      <div class="header-item header-button">友链</div>-->
       <div class="header-item header-button">相册</div>
     </div>
     <div class="header-right">

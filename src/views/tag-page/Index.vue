@@ -24,7 +24,7 @@ onMounted(() => {
   <div class="tag-title">标签</div>
   <div class="tag-content">
     <div class="tag-list">
-      <div class="tag-item" v-for="item in tagList" @click="to({name: 'article-list', params: {id: item?.id}})">{{item.name}}</div>
+      <div class="tag-item" v-for="item in tagList" @click="to({name: 'article-list', params: {id: item?.id}, query: {name: item.name}})">{{item.name}}</div>
     </div>
   </div>
 </div>
@@ -34,6 +34,7 @@ onMounted(() => {
 .tag-title {
   font-size: 40px;
   font-weight: bold;
+  color: var(--font-color);
 }
 
 .tag-content {
