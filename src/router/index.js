@@ -26,6 +26,22 @@ const routes = [
         },
         component: () => import('@/views/article-page/ArticlePreview')
       },
+      {
+        path: 'tags',
+        name: 'tags',
+        meta: {
+          title: '标签'
+        },
+        component: () => import('@/views/tag-page/Index')
+      },
+      {
+        path: 'article-list/:id',
+        name: 'article-list',
+        meta: {
+          title: '文章列表'
+        },
+        component: () => import('@/views/article-page/ArticleList.vue')
+      },
     ]
   },
   {
