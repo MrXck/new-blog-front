@@ -48,14 +48,20 @@ onMounted(() => {
   height: 300px;
   justify-content: center;
   width: 240px;
-  border: 2px black solid;
+  border: var(--feature-title-border);
   border-radius: 8px;
   justify-items: center;
+  color: var(--font-color);
+}
+
+.feature-icon {
+  color: var(--font-color);
 }
 
 .feature-desc {
   font-size: 24px;
   font-weight: bold;
+  color: var(--font-color);
 }
 
 .feature-item {

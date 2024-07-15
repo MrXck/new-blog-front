@@ -1,11 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container theme-light">
     <router-view/>
   </div>
 </template>
 
 <script setup>
 import '@/assets/font/style.css'
+import '@/styles/index.css'
 </script>
 
 <style>

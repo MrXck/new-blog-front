@@ -2,6 +2,7 @@
 import cover from "@/assets/image/default-cover.jpg";
 import {onBeforeUnmount, onMounted, ref} from "vue";
 import {IMAGE_URL} from "@/utils/Constant";
+import {to} from "@/utils/routerUtils";
 
 const {data} = defineProps({
   vertical: {
@@ -36,7 +37,7 @@ onBeforeUnmount(() => {
       vertical ? 'vertical' : '',
       windowSmall ? 'vertical fixed-width' : ''
   ]">
-    <div class="feature-container">
+    <div class="feature-container" @click="to({name: 'article', params: {id: data?.id}})">
       <div class="feature-article">
         <div class="feature-left">
           <img class="feature-image" :src="data?.cover ? IMAGE_URL + data.cover : cover" alt="">
@@ -51,7 +52,7 @@ onBeforeUnmount(() => {
               <div class="feature-article-desc">{{ data?.digest }}</div>
             </div>
             <div class="feature-right-bottom">
-              <img class="feature-avatar" :src="cover" alt="">
+              <img class="feature-avatar" :src="data.avatar ? IMAGE_URL + article.avatar : cover" alt="">
               <div class="feature-username">{{ data?.username }}</div>
               <div class="feature-create-time">发布于 {{ data?.createTime?.replace('T', ' ') }}</div>
             </div>
@@ -67,7 +68,7 @@ onBeforeUnmount(() => {
   height: 450px;
   overflow: hidden;
   border-radius: 20px;
-  background-color: #212121;
+  background-color: var(--feature-bg-color);
   transition: scale .5s;
 }
 
@@ -99,9 +100,10 @@ onBeforeUnmount(() => {
 
 .feature-right {
   width: 45%;
-  color: white;
+  color: var(--font-color);
   z-index: 40;
   padding: 40px;
+  box-sizing: border-box;
 }
 
 .feature-right-container {
@@ -129,7 +131,7 @@ onBeforeUnmount(() => {
   top: 0;
   height: 100%;
   width: 50%;
-  background: linear-gradient(90deg, hsla(0, 0%, 13%, 0) 0, hsla(0, 0%, 13%, 0.013) 8.1%, hsla(0, 0%, 13%, 0.049) 15.5%, hsla(0, 0%, 13%, 0.104) 22.5%, hsla(0, 0%, 13%, 0.175) 29%, hsla(0, 0%, 13%, 0.259) 35.3%, hsla(0, 0%, 13%, 0.352) 41.2%, hsla(0, 0%, 13%, 0.45) 47.1%, hsla(0, 0%, 13%, 0.55) 52.9%, hsla(0, 0%, 13%, 0.648) 58.8%, hsla(0, 0%, 13%, 0.741) 64.7%, hsla(0, 0%, 13%, 0.825) 71%, hsla(0, 0%, 13%, 0.896) 77.5%, hsla(0, 0%, 13%, 0.951) 84.5%, hsla(00, 0%, 13%, 0.987) 91.9%, #212121);
+  background: var(--feature-nail-bg-color);
 }
 
 .feature-article-title {
@@ -142,6 +144,7 @@ onBeforeUnmount(() => {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   word-break: break-all;
+  color: var(--feature-title-color);
 }
 
 .feature-article-desc {
@@ -151,7 +154,7 @@ onBeforeUnmount(() => {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   word-break: break-all;
-  color: #9b9b9b;
+  color: var(--feature-desc-color);
   font-size: 18px;
 }
 
@@ -169,10 +172,15 @@ onBeforeUnmount(() => {
 
 .feature-username {
   margin: 0 10px;
+  color: var(--feature-title-color);
 }
 
 .feature-create-time {
-  color: #555555;
+  color: var(--feature-time-color);
+}
+
+.feature-article-top {
+  color: var(--feature-title-color);
 }
 
 .vertical.feature {
@@ -180,7 +188,7 @@ onBeforeUnmount(() => {
   width: 100%;
   overflow: hidden;
   border-radius: 20px;
-  background-color: #212121;
+  background-color: var(--feature-bg-color);
 }
 
 .vertical .feature-container {
@@ -205,7 +213,7 @@ onBeforeUnmount(() => {
 
 .vertical .feature-right {
   height: 60%;
-  color: white;
+  color: var(--font-color);
   z-index: 40;
   width: 100%;
   padding: 0 0 20px 0;
@@ -237,7 +245,7 @@ onBeforeUnmount(() => {
   left: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(180deg, hsla(0, 0%, 13%, 0) 0, hsla(0, 0%, 13%, 0.013) 8.1%, hsla(0, 0%, 13%, 0.049) 15.5%, hsla(0, 0%, 13%, 0.104) 22.5%, hsla(0, 0%, 13%, 0.175) 29%, hsla(0, 0%, 13%, 0.259) 35.3%, hsla(0, 0%, 13%, 0.352) 41.2%, hsla(0, 0%, 13%, 0.45) 47.1%, hsla(0, 0%, 13%, 0.55) 52.9%, hsla(0, 0%, 13%, 0.648) 58.8%, hsla(0, 0%, 13%, 0.741) 64.7%, hsla(0, 0%, 13%, 0.825) 71%, hsla(0, 0%, 13%, 0.896) 77.5%, hsla(0, 0%, 13%, 0.951) 84.5%, hsla(00, 0%, 13%, 0.987) 91.9%, #212121);
+  background: var(--feature-vertical-nail-bg-color);
 }
 
 .vertical .feature-article-title {
@@ -250,6 +258,7 @@ onBeforeUnmount(() => {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   word-break: break-all;
+  color: var(--font-color);
 }
 
 .vertical .feature-article-desc {
@@ -259,7 +268,7 @@ onBeforeUnmount(() => {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   word-break: break-all;
-  color: #9b9b9b;
+  color: var(--feature-desc-color);
   font-size: 16px;
 }
 
@@ -273,13 +282,15 @@ onBeforeUnmount(() => {
   height: 30px;
   border-radius: 50%;
   object-fit: cover;
+  color: var(--font-color);
 }
 
 .vertical .feature-username {
   margin: 0 10px;
+  color: var(--feature-title-color);
 }
 
 .vertical .feature-create-time {
-  color: #555555;
+  color: var(--feature-time-color);
 }
 </style>

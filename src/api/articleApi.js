@@ -15,3 +15,7 @@ export function getArticleByPage(data) {
 export function getArticleCount() {
     return request.get('/article/count')
 }
+
+export function getArticleById(id) {
+    return request.get(`/article/${id}`)
+}

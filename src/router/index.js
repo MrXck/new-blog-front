@@ -18,6 +18,14 @@ const routes = [
         },
         component: () => import('@/views/Home.vue')
       },
+      {
+        path: 'article/:id',
+        name: 'article',
+        meta: {
+          title: '文章详情'
+        },
+        component: () => import('@/views/article-page/ArticlePreview')
+      },
     ]
   },
   {

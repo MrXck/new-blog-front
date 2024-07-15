@@ -66,7 +66,7 @@ onMounted(() => {
   background-color: #292929;
   padding: 10px 20px;
   border-radius: 8px;
-  color: white;
+  color: var(--font-color);
   gap: 10px;
   height: 34px;
   overflow: hidden;
@@ -74,7 +74,7 @@ onMounted(() => {
 }
 
 .category-item {
-  background-color: #1a1a1a;
+  background-color: var(--bg-color);
   padding: 6px;
   cursor: pointer;
   border-radius: 4px;
@@ -91,6 +91,6 @@ onMounted(() => {
 }
 
 .active {
-  background-color: #e8aeff;
+  background-color: var(--active-tab-color);
 }
 </style>

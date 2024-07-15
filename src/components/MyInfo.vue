@@ -103,7 +103,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #292929;
+  background-color: var(--bg-color);
   padding: 20px;
   border-radius: 10px;
 }
@@ -118,13 +118,13 @@ onMounted(() => {
 .my-name {
   font-size: 40px;
   font-weight: bold;
-  color: white;
+  color: var(--font-color);
   margin-top: 20px;
 }
 
 .my-desc {
   margin-top: 20px;
-  color: white;
+  color: var(--font-color);
   -webkit-line-clamp: 4;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -142,7 +142,7 @@ onMounted(() => {
 .my-icon {
   cursor: pointer;
   margin-right: 10px;
-  color: white;
+  color: var(--font-color);
 }
 
 .my-blog {
@@ -150,6 +150,7 @@ onMounted(() => {
   width: 100%;
   justify-content: space-around;
   margin-top: 40px;
+  color: var(--font-color);
 }
 
 .my-blog-item {
@@ -160,12 +161,12 @@ onMounted(() => {
 }
 
 .title {
-  color: white;
+  color: var(--font-color);
   font-size: 18px;
 }
 
 .num {
-  color: white;
+  color: var(--font-color);
   font-size: 18px;
 }
 </style>
