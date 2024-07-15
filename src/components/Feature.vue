@@ -258,7 +258,7 @@ onBeforeUnmount(() => {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   word-break: break-all;
-  color: var(--font-color);
+  color: var(--feature-title-color);
 }
 
 .vertical .feature-article-desc {
