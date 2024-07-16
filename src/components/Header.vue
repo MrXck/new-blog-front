@@ -2,6 +2,15 @@
 import {Search} from "@vicons/ionicons5"
 import {Icon} from '@vicons/utils'
 import {to} from '@/utils/routerUtils'
+import SearchDialog from "@/components/SearchDialog.vue";
+import Switch from "@/components/Switch.vue";
+import {ref} from "vue";
+
+const search = ref()
+
+function show() {
+  search.value.showSearch()
+}
 
 </script>
 
@@ -13,22 +22,24 @@ import {to} from '@/utils/routerUtils'
         <div style="font-size: 16px">desc</div>
       </div>
       <div class="header-item header-button" @click="to({name: 'index'})">首页</div>
-<!--      <div class="header-item header-button">说说</div>-->
-<!--      <div class="header-item header-button">关于</div>-->
+      <!--      <div class="header-item header-button">说说</div>-->
+      <!--      <div class="header-item header-button">关于</div>-->
       <div class="header-item header-button" @click="to({name: 'archive'})">归档</div>
       <div class="header-item header-button" @click="to({name: 'tags'})">标签</div>
-<!--      <div class="header-item header-button">留言</div>-->
-<!--      <div class="header-item header-button">友链</div>-->
+      <!--      <div class="header-item header-button">留言</div>-->
+      <!--      <div class="header-item header-button">友链</div>-->
       <div class="header-item header-button" @click="to({name: 'photo'})">相册</div>
     </div>
     <div class="header-right">
-      <div class="header-item">
+      <div class="header-item" @click="show">
         <Icon size="30">
           <Search></Search>
         </Icon>
       </div>
       <div class="header-item">登录</div>
+      <Switch/>
     </div>
+    <SearchDialog ref="search"/>
   </div>
 </template>
 
