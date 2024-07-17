@@ -43,6 +43,14 @@ const routes = [
         component: () => import('@/views/article-page/ArticleList')
       },
       {
+        path: 'article-search',
+        name: 'article-search',
+        meta: {
+          title: '搜索结果'
+        },
+        component: () => import('@/views/article-page/ArticleSearch')
+      },
+      {
         path: 'archive',
         name: 'archive',
         meta: {

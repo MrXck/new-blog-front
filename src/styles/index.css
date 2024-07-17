@@ -15,6 +15,7 @@
     --feature-bg-color: #212121;
     --tag-color: white;
     --archive-color: white;
+    --search-color: white;
     --photo-count-color: white;
     --feature-nail-bg-color: linear-gradient(90deg, hsla(0, 0%, 13%, 0) 0,
     hsla(0, 0%, 13%, 0.013) 8.1%, hsla(0, 0%, 13%, 0.049) 15.5%,
@@ -45,6 +46,7 @@
     --feature-bg-color: white;
     --tag-color: black;
     --archive-color: black;
+    --search-color: white;
     --photo-count-color: black;
     --feature-nail-bg-color: linear-gradient(90deg, hsla(0, 0%, 98%, 0.013) 8.1%,
     hsla(0, 0%, 98%, 0.049) 15.5%, hsla(0, 0%, 98%, 0.104) 22.5%,
